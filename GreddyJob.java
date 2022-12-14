@@ -29,6 +29,8 @@ public class GreddyJob {
 					writer.write(startTime+"\n");
 					System.out.println("Enter end time: ");
 					String endTime=scn.next();
+					if(Integer.parseInt(startTime)>Integer.parseInt(endTime))
+						throw new WrongTimingException("Start time is greater than end time");
 					writer.write(endTime+"\n");
 					System.out.println("Enter profit: ");
 					String profit=scn.next();
@@ -81,5 +83,13 @@ public class GreddyJob {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 }
+
+class WrongTimingException extends RuntimeException{
+	public WrongTimingException(String s) {
+		super(s);
+	}
+}
+
