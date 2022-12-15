@@ -13,15 +13,12 @@ import java.util.Scanner;
 public class GreddyJob {
 	public static void main(String[] args) throws IOException {
 		Scanner scn=new Scanner(System.in);
-		  FileOutputStream fil = new FileOutputStream("C:\\\\Users\\\\Hp\\\\OneDrive\\\\Desktop\\\\inputFile.txt");
-	      fil.write(32);
 		System.out.println("Enter how many job you want to enter:  ");
 		int n=scn.nextInt();
-		boolean append=true;
 		File inputFile=new File("C:\\Users\\Hp\\OneDrive\\Desktop\\inputFile.txt");
 		try {
 			//Reading input from the user and saving it into input file
-			FileWriter writer =new FileWriter(inputFile,append);
+			FileWriter writer =new FileWriter(inputFile);
 			for(int i=0;i<n;i++) {
 				
 					System.out.println("Enter start time: ");
@@ -47,8 +44,6 @@ public class GreddyJob {
 			}
 			
 			//Iterate the arrayList
-			int n1=2;
-			
 			//Getting the profits and saving to a profit ArrayList.
 			ArrayList<Integer> profit = new ArrayList<Integer>();
 			for(int i = 2; i <arr.size();i+=3) {
@@ -62,7 +57,7 @@ public class GreddyJob {
 		        }
 		        
 		        profit.remove(profit.indexOf(maximum));
-		        //For counting other remployee profit
+		        //For counting other employee profit
 		        //Iterate the profit list
 		        Iterator<Integer> itr=profit.iterator();
 		        int sum=0;
@@ -75,6 +70,7 @@ public class GreddyJob {
 		        FileOutputStream fos = new FileOutputStream("C:\\\\Users\\\\Hp\\\\OneDrive\\\\Desktop\\\\outputFile.txt");
 			      
 		        String s = count+"\n"+sum;
+		        //Convert s to byte array because FileOutputStream write method will take byte or byte[] as argument.
 		        byte[] b = s.getBytes();
 		        fos.write(b);
 		        System.out.println(s);
